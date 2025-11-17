@@ -27,7 +27,7 @@ export default function Corousel() {
         index: nextIndex,
         animated: true,
       });
-    }, 3000);
+    }, 4500);
 
     return () => clearInterval(interval);
   }, [activeIndex]);

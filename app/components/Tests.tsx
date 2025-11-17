@@ -1,16 +1,16 @@
 import {
+  Dimensions,
   FlatList,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-  Dimensions,
 } from "react-native";
 import { testCategories } from "../data";
 
 const { width } = Dimensions.get("window");
 const CARD_SPACING = 12;
-const CARD_WIDTH = width * 0.8; // ~80% of screen width for horizontal cards
+const CARD_WIDTH = width * 0.8;
 
 export default function Tests() {
   const renderTestCard = ({ item: test }: any) => (
@@ -21,7 +21,7 @@ export default function Tests() {
       </View>
       <View style={styles.testPrice}>
         <Text style={styles.price}>{test.price}</Text>
-        <TouchableOpacity style={styles.addButton}>
+        <TouchableOpacity style={styles.addButton} activeOpacity={0.7}>
           <Text style={styles.addButtonText}>+ Add</Text>
         </TouchableOpacity>
       </View>
@@ -70,21 +70,20 @@ const styles = StyleSheet.create({
   },
   testsListContent: {
     paddingBottom: 4,
+    paddingLeft: 3,
   },
   testCard: {
     backgroundColor: "#FFFFFF",
     borderRadius: 16,
-    padding: 16,
+    padding: 18,
     flexDirection: "row",
     justifyContent: "space-between",
     width: CARD_WIDTH,
     marginRight: CARD_SPACING,
-
-    // subtle shadow
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.08,
-    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.06,
+    shadowRadius: 4,
     elevation: 2,
   },
   testInfo: {
