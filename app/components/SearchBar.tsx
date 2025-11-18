@@ -1,6 +1,9 @@
 import { Ionicons } from "@expo/vector-icons";
 import { StyleSheet, TextInput, View } from "react-native";
-export default function SearchBar() {
+
+type SearchBarProps = { Value: string; onChangeText: (text: string) => void };
+
+export default function SearchBar({ Value, onChangeText }: SearchBarProps) {
   return (
     <View style={styles.searchContainer}>
       <Ionicons
@@ -13,6 +16,8 @@ export default function SearchBar() {
         style={styles.searchInput}
         placeholder="Search for...e.g. Thyroid"
         placeholderTextColor="#999"
+        value={Value}
+        onChangeText={onChangeText}
       />
     </View>
   );

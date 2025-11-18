@@ -8,11 +8,29 @@ import {
 } from "react-native";
 import { testCategories } from "../data";
 
+type SearchTestProps = { searchText: string };
+
 const { width } = Dimensions.get("window");
 const CARD_SPACING = 12;
 const CARD_WIDTH = width * 0.8;
 
-export default function Tests() {
+export default function Tests({ searchText }: SearchTestProps) {
+  const query = searchText.trim().toLowerCase();
+
+  const filteredCategories = testCategories
+    .map((category) => {
+      // For each category, filter its tests
+      const filteredTests = category.tests.filter((test) => {
+        const nameMatch = test.name.toLowerCase().includes(query);
+        // const descMatch = test.desc.toLowerCase().includes(query);
+        // return nameMatch || descMatch;
+        return nameMatch;
+      });
+
+      return { ...category, tests: filteredTests };
+    })
+    .filter((category) => category.tests.length > 0 || query === ""); // remove categories where no tests match
+
   const renderTestCard = ({ item: test }: any) => (
     <View key={test.name} style={styles.testCard}>
       <View style={styles.testInfo}>
@@ -48,7 +66,7 @@ export default function Tests() {
   return (
     <View>
       <FlatList
-        data={testCategories}
+        data={filteredCategories}
         renderItem={renderCategory}
         keyExtractor={(item) => item.id}
         scrollEnabled={false}

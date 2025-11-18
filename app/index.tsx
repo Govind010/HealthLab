@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Carousel from "./components/Carousel";
@@ -7,6 +7,8 @@ import SearchBar from "./components/SearchBar";
 import Tests from "./components/Tests";
 
 export default function App() {
+  const [searchText, setSearchText] = useState("");
+
   return (
     <SafeAreaView edges={["top", "left", "right"]} style={styles.container}>
       <ScrollView
@@ -17,13 +19,13 @@ export default function App() {
         <Header />
 
         {/* Search Bar */}
-        <SearchBar />
+        <SearchBar Value={searchText} onChangeText={setSearchText}/>
 
         {/* Carousel */}
         <Carousel />
 
         {/* Test Categories */}
-        <Tests />
+        <Tests searchText={searchText}/>
       </ScrollView>
     </SafeAreaView>
   );
