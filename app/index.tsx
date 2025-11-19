@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import Toast from "react-native-toast-message";
 import Carousel from "./components/Carousel";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import Tests from "./components/Tests";
-import Toast from "react-native-toast-message";
 import { toastConfig } from "./Data/toastConfig";
 
 export default function App() {
@@ -21,13 +21,13 @@ export default function App() {
         <Header />
 
         {/* Search Bar */}
-        <SearchBar Value={searchText} onChangeText={setSearchText}/>
+        <SearchBar Value={searchText} onChangeText={setSearchText} />
 
         {/* Carousel */}
         <Carousel />
 
         {/* Test Categories */}
-        <Tests searchText={searchText}/>
+        <Tests searchText={searchText} />
       </ScrollView>
       <Toast config={toastConfig} />
     </SafeAreaView>

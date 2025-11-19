@@ -32,7 +32,11 @@ export default function Tests({ searchText }: SearchTestProps) {
     .filter((category) => category.tests.length > 0 || query === "");
 
   const handleAddToCart = (test: any) => {
-    const result = addTestToCart(test.name);
+    const result = addTestToCart({
+      name: test.name,
+      desc: test.desc,
+      price: test.price,
+    });
 
     if (!result.added) {
       Toast.show({
