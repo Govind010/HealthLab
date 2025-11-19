@@ -45,7 +45,7 @@ export default function Tests({ searchText }: SearchTestProps) {
         text1: "Already in cart",
         text2: `${test.name} is already added`,
         position: "bottom",
-        visibilityTime: 1200,
+        visibilityTime: 2000,
       });
     } else {
       Toast.show({
@@ -53,7 +53,7 @@ export default function Tests({ searchText }: SearchTestProps) {
         text1: "Added to cart",
         text2: `${test.name} has been added`,
         position: "bottom",
-        visibilityTime: 1000,
+        visibilityTime: 2000,
       });
     }
   };
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   addButton: {
-    backgroundColor: "#F5F5F5",
+    backgroundColor: "#3ACDB9",
     paddingHorizontal: 14,
     paddingVertical: 8,
     borderRadius: 8,
@@ -168,6 +168,6 @@ const styles = StyleSheet.create({
   addButtonText: {
     fontSize: 14,
     fontWeight: "600",
-    color: "#333",
+    color: "#1A1A1A",
   },
 });

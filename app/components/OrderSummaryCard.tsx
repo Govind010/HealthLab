@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 type OrderSummaryCardProps = {
@@ -60,9 +61,7 @@ export default function OrderSummaryCard({
         <TouchableOpacity
           style={styles.bookButton}
           activeOpacity={0.85}
-          onPress={() => {
-            // handle navigation / booking
-          }}
+          onPress={() => router.push("/Screen/BookAppointmentScreen")}
         >
           <Text style={styles.bookButtonText}>Proceed to Book</Text>
         </TouchableOpacity>
