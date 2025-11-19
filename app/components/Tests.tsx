@@ -6,10 +6,10 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Alert,
 } from "react-native";
-import { testCategories } from "../Data/data";
+import Toast from "react-native-toast-message";
 import { addTestToCart } from "../Data/cartData";
+import { testCategories } from "../Data/data";
 
 type SearchTestProps = { searchText: string };
 
@@ -35,9 +35,21 @@ export default function Tests({ searchText }: SearchTestProps) {
     const result = addTestToCart(test.name);
 
     if (!result.added) {
-      Alert.alert("Test already in cart", "This test already exists in your cart.");
+      Toast.show({
+        type: "error",
+        text1: "Already in cart",
+        text2: `${test.name} is already added`,
+        position: "bottom",
+        visibilityTime: 1200,
+      });
     } else {
-      Alert.alert("Added to cart", `${test.name} has been added to your cart.`);
+      Toast.show({
+        type: "success",
+        text1: "Added to cart",
+        text2: `${test.name} has been added`,
+        position: "bottom",
+        visibilityTime: 1000,
+      });
     }
   };
 

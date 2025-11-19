@@ -5,6 +5,8 @@ import Carousel from "./components/Carousel";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import Tests from "./components/Tests";
+import Toast from "react-native-toast-message";
+import { toastConfig } from "./Data/toastConfig";
 
 export default function App() {
   const [searchText, setSearchText] = useState("");
@@ -27,6 +29,7 @@ export default function App() {
         {/* Test Categories */}
         <Tests searchText={searchText}/>
       </ScrollView>
+      <Toast config={toastConfig} />
     </SafeAreaView>
   );
 }
