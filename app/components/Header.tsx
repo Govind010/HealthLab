@@ -1,21 +1,25 @@
-import { StyleSheet } from "react-native";
-import { Text, View,TouchableOpacity } from "react-native";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default function Header(){
-    return<View style={styles.header}>
-          <TouchableOpacity>
-            <Ionicons name="menu" size={24} color="#333" />
-          </TouchableOpacity>
-          <Text style={styles.headerTitle}>HealthLab</Text>
-          <TouchableOpacity>
-            <MaterialCommunityIcons
-              name="shopping-outline"
-              size={24}
-              color="#333"
-            />
-          </TouchableOpacity>
-        </View>
+export default function Header() {
+  const router = useRouter();
+
+  return (
+    <View style={styles.header}>
+      <TouchableOpacity>
+        <Ionicons name="menu" size={24} color="#333" />
+      </TouchableOpacity>
+      <Text style={styles.headerTitle}>HealthLab</Text>
+      <TouchableOpacity onPress={() => router.push("/Screen/CartScreen")}>
+        <MaterialCommunityIcons
+          name="shopping-outline"
+          size={24}
+          color="#333"
+        />
+      </TouchableOpacity>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

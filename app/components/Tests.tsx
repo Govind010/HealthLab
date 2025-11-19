@@ -1,3 +1,4 @@
+// Tests.tsx
 import {
   Dimensions,
   FlatList,
@@ -5,8 +6,10 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Alert,
 } from "react-native";
-import { testCategories } from "../data";
+import { testCategories } from "../Data/data";
+import { addTestToCart } from "../Data/cartData";
 
 type SearchTestProps = { searchText: string };
 
@@ -19,17 +22,24 @@ export default function Tests({ searchText }: SearchTestProps) {
 
   const filteredCategories = testCategories
     .map((category) => {
-      // For each category, filter its tests
       const filteredTests = category.tests.filter((test) => {
         const nameMatch = test.name.toLowerCase().includes(query);
-        // const descMatch = test.desc.toLowerCase().includes(query);
-        // return nameMatch || descMatch;
         return nameMatch;
       });
 
       return { ...category, tests: filteredTests };
     })
-    .filter((category) => category.tests.length > 0 || query === ""); // remove categories where no tests match
+    .filter((category) => category.tests.length > 0 || query === "");
+
+  const handleAddToCart = (test: any) => {
+    const result = addTestToCart(test.name);
+
+    if (!result.added) {
+      Alert.alert("Test already in cart", "This test already exists in your cart.");
+    } else {
+      Alert.alert("Added to cart", `${test.name} has been added to your cart.`);
+    }
+  };
 
   const renderTestCard = ({ item: test }: any) => (
     <View key={test.name} style={styles.testCard}>
@@ -39,7 +49,11 @@ export default function Tests({ searchText }: SearchTestProps) {
       </View>
       <View style={styles.testPrice}>
         <Text style={styles.price}>{test.price}</Text>
-        <TouchableOpacity style={styles.addButton} activeOpacity={0.7}>
+        <TouchableOpacity
+          style={styles.addButton}
+          activeOpacity={0.7}
+          onPress={() => handleAddToCart(test)}
+        >
           <Text style={styles.addButtonText}>+ Add</Text>
         </TouchableOpacity>
       </View>

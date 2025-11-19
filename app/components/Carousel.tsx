@@ -8,7 +8,7 @@ import {
   StyleSheet,
   View,
 } from "react-native";
-import { carouselData } from "../data";
+import { carouselData } from "../Data/data";
 
 const screenWidth = Dimensions.get("window").width;
 
