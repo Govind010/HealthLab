@@ -3,6 +3,7 @@ export type CartItem = {
   name: string;
   desc: string;
   price: string; // e.g. "₹250"
+  category:string;
 };
 
 export const cartData: CartItem[] = [];

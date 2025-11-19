@@ -31,11 +31,12 @@ export default function Tests({ searchText }: SearchTestProps) {
     })
     .filter((category) => category.tests.length > 0 || query === "");
 
-  const handleAddToCart = (test: any) => {
+  const handleAddToCart = (test: any, category: string) => {
     const result = addTestToCart({
       name: test.name,
       desc: test.desc,
       price: test.price,
+      category:category,
     });
 
     if (!result.added) {
@@ -57,7 +58,7 @@ export default function Tests({ searchText }: SearchTestProps) {
     }
   };
 
-  const renderTestCard = ({ item: test }: any) => (
+  const renderTestCard = (test: any, category: any) => (
     <View key={test.name} style={styles.testCard}>
       <View style={styles.testInfo}>
         <Text style={styles.testName}>{test.name}</Text>
@@ -68,7 +69,7 @@ export default function Tests({ searchText }: SearchTestProps) {
         <TouchableOpacity
           style={styles.addButton}
           activeOpacity={0.7}
-          onPress={() => handleAddToCart(test)}
+          onPress={() => handleAddToCart(test, category)}
         >
           <Text style={styles.addButtonText}>+ Add</Text>
         </TouchableOpacity>
@@ -81,7 +82,7 @@ export default function Tests({ searchText }: SearchTestProps) {
       <Text style={styles.categoryTitle}>{item.title}</Text>
       <FlatList
         data={item.tests}
-        renderItem={renderTestCard}
+        renderItem={({ item: test }) => renderTestCard(test, item.title)}
         keyExtractor={(test) => test.name}
         horizontal
         showsHorizontalScrollIndicator={false}

@@ -29,7 +29,7 @@ function priceToNumber(price: string): number {
 
 export default function CartScreen() {
   // Forces re-render when we mutate global cartData
-  const [cartTests,setCartTests] = useState<CartItem[]>(cartData);
+  const [cartTests, setCartTests] = useState<CartItem[]>(cartData);
 
   // const cartTests: CartItem[] = cartData;
 
@@ -63,6 +63,9 @@ export default function CartScreen() {
       <View style={styles.testInfo}>
         <Text style={styles.testName}>{test.name}</Text>
         <Text style={styles.testDesc}>{test.desc}</Text>
+        <View>
+          <Text style={styles.CatText}>{test.category}</Text>
+        </View>
       </View>
 
       <View style={styles.testPrice}>
@@ -113,7 +116,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#F4F6FA",
     paddingHorizontal: 16,
-    paddingTop: 16,
+    paddingTop: 28,
   },
   header: {
     fontSize: 22,
@@ -156,6 +159,10 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   testDesc: {
+    fontSize: 13,
+    color: "#6F6F6F",
+  },
+  CatText: {
     fontSize: 13,
     color: "#6F6F6F",
   },
