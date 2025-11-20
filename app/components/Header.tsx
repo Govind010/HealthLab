@@ -7,11 +7,17 @@ export default function Header() {
 
   return (
     <View style={styles.header}>
-      <TouchableOpacity>
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        onPress={() => router.push("/Screen/PackagesScreen")}
+      >
         <Ionicons name="menu" size={24} color="#333" />
       </TouchableOpacity>
       <Text style={styles.headerTitle}>HealthLab</Text>
-      <TouchableOpacity onPress={() => router.push("/Screen/CartScreen")}>
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        onPress={() => router.push("/Screen/CartScreen")}
+      >
         <MaterialCommunityIcons
           name="shopping-outline"
           size={24}
@@ -27,8 +33,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: 16,
-    paddingVertical: 14,
     backgroundColor: "#fff",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
@@ -44,4 +48,5 @@ const styles = StyleSheet.create({
     color: "#1CC9B0",
     letterSpacing: 0.5,
   },
+  buttonStyle: { paddingVertical: 14, paddingHorizontal: 16 },
 });
