@@ -36,7 +36,7 @@ export default function Tests({ searchText }: SearchTestProps) {
       name: test.name,
       desc: test.desc,
       price: test.price,
-      category:category,
+      category: category,
     });
 
     if (!result.added) {

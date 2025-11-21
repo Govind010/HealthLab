@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Carousel from "./components/Carousel";
-import Header from "./components/Header";
-import SearchBar from "./components/SearchBar";
-import Tests from "./components/Tests";
+import Carousel from "../components/Carousel";
+import Header from "../components/Header";
+import SearchBar from "../components/SearchBar";
+import Tests from "../components/Tests";
 
 export default function App() {
   const [searchText, setSearchText] = useState("");

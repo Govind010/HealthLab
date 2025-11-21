@@ -1,4 +1,4 @@
-import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
@@ -7,10 +7,7 @@ export default function Header() {
 
   return (
     <View style={styles.header}>
-      <TouchableOpacity
-        style={styles.buttonStyle}
-        onPress={() => router.push("/Screen/PackagesScreen")}
-      >
+      <TouchableOpacity style={styles.buttonStyle}>
         <Ionicons name="menu" size={24} color="#333" />
       </TouchableOpacity>
       <Text style={styles.headerTitle}>HealthLab</Text>
@@ -18,11 +15,7 @@ export default function Header() {
         style={styles.buttonStyle}
         onPress={() => router.push("/Screen/CartScreen")}
       >
-        <MaterialCommunityIcons
-          name="shopping-outline"
-          size={24}
-          color="#333"
-        />
+        <Ionicons name="cart-outline" size={24} color="#333" />
       </TouchableOpacity>
     </View>
   );

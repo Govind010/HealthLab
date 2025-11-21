@@ -1,22 +1,16 @@
-import React, { useMemo, useState, useRef } from "react";
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  Alert,
-  Platform,
-} from "react-native";
 import DateTimePicker, {
   DateTimePickerEvent,
 } from "@react-native-community/datetimepicker";
+import React, { useMemo, useRef, useState } from "react";
+import { Alert, Platform, ScrollView, StyleSheet, Text } from "react-native";
 
-import { CartItem, cartData } from "@/app/Data/cartData";
-import AppointmentScheduleCard from "@/app/components/AppointmentScheduleCard";
-import BookingSummaryCard from "@/app/components//BookingSummaryCard";
+import { CartItem, cartData } from "../../Data/cartData";
+import AppointmentScheduleCard from "../../components/AppointmentScheduleCard";
+import BookingSummaryCard from "../../components/BookingSummaryCard";
 import PatientDetailsForm, {
   Gender,
   PatientDetailsFormHandle,
-} from "@/app/components//PatientDetailsForm";
+} from "../../components/PatientDetailsForm";
 
 const HOME_COLLECTION_CHARGE = 125;
 const FREE_HOME_COLLECTION_THRESHOLD = 500;

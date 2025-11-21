@@ -1,3 +1,4 @@
+import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import {
   Dimensions,
@@ -12,8 +13,8 @@ import {
   CartItem,
   clearCart,
   removeTestFromCart,
-} from "../Data/cartData";
-import OrderSummaryCard from "../components/OrderSummaryCard";
+} from "../../Data/cartData";
+import OrderSummaryCard from "../../components/OrderSummaryCard";
 
 const { width } = Dimensions.get("window");
 const CARD_SPACING = 12;
@@ -75,7 +76,8 @@ export default function CartScreen() {
           activeOpacity={0.7}
           onPress={() => handleRemove(test.name)}
         >
-          <Text style={styles.deleteIcon}>🗑️</Text>
+          {/* <Text style={styles.deleteIcon}>🗑️</Text> */}
+          <Ionicons name="trash-outline" size={24} color="#c91010ff" />
         </TouchableOpacity>
       </View>
     </View>
@@ -177,7 +179,6 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   deleteButton: {
-    backgroundColor: "#FFF1F0",
     paddingHorizontal: 10,
     paddingVertical: 6,
     borderRadius: 8,

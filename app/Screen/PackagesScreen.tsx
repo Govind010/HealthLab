@@ -6,8 +6,8 @@ import {
   View,
 } from "react-native";
 import Toast from "react-native-toast-message";
-import { addTestToCart } from "../Data/cartData";
-import { healthPackages } from "../Data/data";
+import { addTestToCart } from "../../Data/cartData";
+import { healthPackages } from "../../Data/data";
 
 export default function Packages() {
   const handleAddToCart = (pkg: any) => {
