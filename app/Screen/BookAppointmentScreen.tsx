@@ -166,7 +166,7 @@ export default function BookAppointmentScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F4F6FA",
+    backgroundColor: "#F5FAFA",
   },
   content: {
     paddingHorizontal: 16,

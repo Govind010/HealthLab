@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import Toast from "react-native-toast-message";
 import { addTestToCart } from "../../Data/cartData";
 import { healthPackages } from "../../Data/data";
@@ -108,23 +109,25 @@ export default function Packages() {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Health Packages</Text>
-      <FlatList
-        data={healthPackages}
-        keyExtractor={(item: any) => item.id}
-        renderItem={renderPackageCard}
-      />
-    </View>
+    <SafeAreaView style={styles.safeArea} edges={["top", "left", "right"]}>
+      <View style={styles.container}>
+        <Text style={styles.header}>Health Packages</Text>
+        <FlatList
+          data={healthPackages}
+          keyExtractor={(item: any) => item.id}
+          renderItem={renderPackageCard}
+        />
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  safeArea: { flex: 1 },
   container: {
     flex: 1,
-    backgroundColor: "#F4F6FA",
-    paddingHorizontal: 16,
-    paddingTop: 28,
+    backgroundColor: "#F5FAFA",
+    paddingHorizontal: 8,
   },
   header: {
     fontSize: 22,
@@ -133,7 +136,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   cardContainer: {
-    paddingHorizontal: 16,
+    paddingHorizontal: 8,
     marginTop: 10,
     marginBottom: 10,
   },

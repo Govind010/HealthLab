@@ -8,13 +8,14 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import OrderSummaryCard from "../../components/OrderSummaryCard";
 import {
   cartData,
   CartItem,
   clearCart,
   removeTestFromCart,
 } from "../../Data/cartData";
-import OrderSummaryCard from "../../components/OrderSummaryCard";
 
 const { width } = Dimensions.get("window");
 const CARD_SPACING = 12;
@@ -84,41 +85,43 @@ export default function CartScreen() {
   );
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Shopping Cart</Text>
+    <SafeAreaView style={styles.safeArea} edges={["top", "left", "right"]}>
+      <View style={styles.container}>
+        <Text style={styles.header}>Shopping Cart</Text>
 
-      <FlatList
-        data={cartTests}
-        renderItem={renderTestCard}
-        keyExtractor={(item) => item.name}
-        ListEmptyComponent={
-          <Text style={styles.emptyText}>Your cart is empty.</Text>
-        }
-        contentContainerStyle={styles.listContent}
-      />
+        <FlatList
+          data={cartTests}
+          renderItem={renderTestCard}
+          keyExtractor={(item) => item.name}
+          ListEmptyComponent={
+            <Text style={styles.emptyText}>Your cart is empty.</Text>
+          }
+          contentContainerStyle={styles.listContent}
+        />
 
-      {cartTests.length > 0 && (
-        <>
-          <OrderSummaryCard
-            subtotal={subtotal}
-            homeCollectionCharge={homeCollectionCharge}
-            totalAmount={totalAmount}
-            remainingForFree={remainingForFree}
-            hasFreeHomeCollection={hasFreeHomeCollection}
-            handleClear={handleClear}
-          />
-        </>
-      )}
-    </View>
+        {cartTests.length > 0 && (
+          <>
+            <OrderSummaryCard
+              subtotal={subtotal}
+              homeCollectionCharge={homeCollectionCharge}
+              totalAmount={totalAmount}
+              remainingForFree={remainingForFree}
+              hasFreeHomeCollection={hasFreeHomeCollection}
+              handleClear={handleClear}
+            />
+          </>
+        )}
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  safeArea: { flex: 1 },
   container: {
     flex: 1,
-    backgroundColor: "#F4F6FA",
+    backgroundColor: "#F5FAFA",
     paddingHorizontal: 16,
-    paddingTop: 28,
   },
   header: {
     fontSize: 22,

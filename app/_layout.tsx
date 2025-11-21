@@ -36,7 +36,7 @@ export default function RootLayout() {
         />
 
         <Tabs.Screen
-          name="AdminScreen"
+          name="Screen/AdminScreen"
           options={{
             title: "Admin",
             tabBarIcon: ({ color, size }) => (

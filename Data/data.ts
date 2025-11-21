@@ -1,23 +1,19 @@
 export const carouselData = [
   {
     id: "1",
-    image: require("@/assets/images/add_1.jpg"),
+    image: require("@/assets/images/add_1.jpeg"),
   },
   {
     id: "2",
-    image: require("@/assets/images/add_2.jpg"),
+    image: require("@/assets/images/add_2.jpeg"),
   },
   {
     id: "3",
-    image: require("@/assets/images/add_3.jpg"),
+    image: require("@/assets/images/add_3.jpeg"),
   },
   {
     id: "4",
-    image: require("@/assets/images/add_4.jpg"),
-  },
-  {
-    id: "5",
-    image: require("@/assets/images/add_5.jpg"),
+    image: require("@/assets/images/add_4.jpeg"),
   },
 ];
 

@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   Dimensions,
@@ -6,6 +7,7 @@ import {
   NativeScrollEvent,
   NativeSyntheticEvent,
   StyleSheet,
+  TouchableOpacity,
   View,
 } from "react-native";
 import { carouselData } from "../Data/data";
@@ -38,9 +40,14 @@ export default function Corousel() {
   }, [loopData.length]);
 
   const renderCarouselItem = ({ item }: { item: (typeof carouselData)[0] }) => (
-    <View style={styles.itemWrap}>
-      <Image source={item.image} style={styles.imageStyel} />
-    </View>
+    <TouchableOpacity
+      onPress={() => router.push("/Screen/PackagesScreen")}
+      activeOpacity={0.9}
+    >
+      <View style={styles.itemWrap}>
+        <Image source={item.image} style={styles.imageStyel} />
+      </View>
+    </TouchableOpacity>
   );
 
   useEffect(() => {
