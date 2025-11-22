@@ -9,7 +9,6 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function AdminScreen() {
-  // You can replace these with real values from your API / state
   const totalAppointments = 0;
   const availableTests = 30;
   const healthPackages = 6;
@@ -91,7 +90,7 @@ export default function AdminScreen() {
           <TouchableOpacity
             style={styles.sectionButton}
             activeOpacity={0.9}
-            onPress={() => router.push("/")}
+            onPress={() => router.push("/Screen/ManageAppointmentsScreen")}
           >
             <Text style={styles.sectionButtonText}>Manage Appointments</Text>
           </TouchableOpacity>
@@ -105,7 +104,7 @@ export default function AdminScreen() {
           <TouchableOpacity
             style={styles.sectionButton}
             activeOpacity={0.9}
-            onPress={() => router.push("/")}
+            onPress={() => router.push("/Screen/ManageTestsAndPackagesScreen")}
           >
             <Text style={styles.sectionButtonText}>Manage Tests</Text>
           </TouchableOpacity>
@@ -119,7 +118,7 @@ export default function AdminScreen() {
           <TouchableOpacity
             style={styles.sectionButton}
             activeOpacity={0.9}
-            onPress={() => router.push("/")}
+            onPress={() => router.push("/Screen/ManageTimeSlotsScreen")}
           >
             <Text style={styles.sectionButtonText}>Manage Slots</Text>
           </TouchableOpacity>

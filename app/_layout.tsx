@@ -58,6 +58,24 @@ export default function RootLayout() {
             href: null,
           }}
         />
+        <Tabs.Screen
+          name="Screen/ManageTimeSlotsScreen"
+          options={{
+            href: null,
+          }}
+        />
+        <Tabs.Screen
+          name="Screen/ManageTestsAndPackagesScreen"
+          options={{
+            href: null,
+          }}
+        />
+        <Tabs.Screen
+          name="Screen/ManageAppointmentsScreen"
+          options={{
+            href: null,
+          }}
+        />
       </Tabs>
       <Toast config={toastConfig} />
     </>
