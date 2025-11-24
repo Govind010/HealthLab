@@ -56,15 +56,6 @@ export default function ManageAppointmentsScreen() {
           <Text style={styles.logoText}>
             <Text style={styles.logoAccent}>HealthLab</Text> Admin
           </Text>
-
-          <TouchableOpacity
-            style={styles.backButton}
-            activeOpacity={0.8}
-            onPress={() => router.back()}
-          >
-            <Text style={styles.backButtonIcon}>←</Text>
-            <Text style={styles.backButtonText}>Dashboard</Text>
-          </TouchableOpacity>
         </View>
 
         {/* Header */}

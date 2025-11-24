@@ -1,6 +1,33 @@
+import { useState } from "react";
 import { StyleSheet, Switch, Text, TextInput, View } from "react-native";
+import CustomSelect from "./CustomSelect";
 
 export default function PackageEditForm() {
+  const [selectedTest, setSelectedTest] = useState<string>();
+  const [popular, setPopular] = useState<boolean>(true);
+
+  // Sample test data
+  const existingPackages = [
+    { name: "Basic Health Checkup", id: "1" },
+    { name: "Diabetes Care Package", id: "2" },
+    { name: "Heart Health Package", id: "3" },
+    { name: "Women's Wellness Package", id: "4" },
+    { name: "Men's Health Package", id: "5" },
+    { name: "Fever Panel", id: "6" },
+  ];
+
+  // Sample test data
+  const existingTests = [
+    { name: "Vitamin D 25-Hydroxy", id: "vitamin_d" },
+    { name: "Complete Blood Count (CBC)", id: "cbc" },
+    { name: "Thyroid Profile", id: "thyroid" },
+    { name: "Lipid Profile", id: "lipid" },
+    { name: "Blood Glucose Fasting", id: "glucose" },
+    { name: "Liver Function Test", id: "lft" },
+    { name: "HbA1c Test", id: "hba1c" },
+    { name: "Iron Studies", id: "iron" },
+  ];
+
   return (
     <View style={styles.itemCard}>
       <Text style={styles.sectionTitle}>Package Edit Form</Text>
@@ -9,9 +36,11 @@ export default function PackageEditForm() {
         package.
       </Text>
       <Text style={styles.fieldLabel}>Select Package (optional)</Text>
-      <TextInput
-        placeholder="Search or select a package"
-        style={styles.textInput}
+      <CustomSelect
+        value={selectedTest}
+        onValueChange={setSelectedTest}
+        placeholder="Search or select a test"
+        options={existingPackages}
       />
 
       {/* Package name */}
@@ -56,7 +85,7 @@ export default function PackageEditForm() {
             Mark this package as popular to highlight it.
           </Text>
         </View>
-        <Switch value={true} />
+        <Switch value={popular} onValueChange={setPopular} />
       </View>
 
       {/* Tests dropdown / multi-select */}
@@ -64,6 +93,12 @@ export default function PackageEditForm() {
       <Text style={styles.helperText}>
         Select one or more tests to be part of this package.
       </Text>
+      <CustomSelect
+        value={selectedTest}
+        onValueChange={setSelectedTest}
+        placeholder="Search or select a test"
+        options={existingTests}
+      />
     </View>
   );
 }

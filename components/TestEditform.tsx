@@ -1,6 +1,22 @@
+import { useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
+import CustomSelect from "./CustomSelect";
 
 export default function TestEditForm() {
+  const [selectedTest, setSelectedTest] = useState<string>();
+
+  // Sample test data
+  const existingTests = [
+    { name: "Vitamin D 25-Hydroxy", id: "vitamin_d" },
+    { name: "Complete Blood Count (CBC)", id: "cbc" },
+    { name: "Thyroid Profile", id: "thyroid" },
+    { name: "Lipid Profile", id: "lipid" },
+    { name: "Blood Glucose Fasting", id: "glucose" },
+    { name: "Liver Function Test", id: "lft" },
+    { name: "HbA1c Test", id: "hba1c" },
+    { name: "Iron Studies", id: "iron" },
+  ];
+
   return (
     <View style={styles.itemCard}>
       <Text style={styles.sectionTitle}>Test Edit Form</Text>
@@ -8,11 +24,13 @@ export default function TestEditForm() {
         Select an existing test to edit, or leave it empty to create a new test.
       </Text>
 
-      {/* Dropdown menu */}
+      {/* Custom Select Dropdown */}
       <Text style={styles.fieldLabel}>Select Test (optional)</Text>
-      <TextInput
+      <CustomSelect
+        value={selectedTest}
+        onValueChange={setSelectedTest}
         placeholder="Search or select a test"
-        style={styles.textInput}
+        options={existingTests}
       />
 
       {/* Test name */}
@@ -27,6 +45,7 @@ export default function TestEditForm() {
       <TextInput
         style={[styles.textInput, styles.multilineInput]}
         placeholder="Short description of the test"
+        multiline
       />
 
       {/* Price */}
@@ -41,10 +60,8 @@ export default function TestEditForm() {
 }
 
 const CARD_BG = "#FFFFFF";
-const SCREEN_BG = "#F5FAFA";
-const PRIMARY_TEAL = "#3ACDB9";
-const PRIMARY_ORANGE = "#FF7A3C";
 const TEXT_DARK = "#1A1A1A";
+
 const styles = StyleSheet.create({
   itemCard: {
     backgroundColor: CARD_BG,
