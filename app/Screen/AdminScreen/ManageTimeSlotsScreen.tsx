@@ -1,14 +1,13 @@
-import { router } from "expo-router";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { useState } from "react";
 import {
   ScrollView,
   StyleSheet,
   Text,
-  View,
-  TouchableOpacity,
   TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { useState } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const CARD_BG = "#FFFFFF";
 const SCREEN_BG = "#F5FAFA";

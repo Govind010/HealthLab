@@ -1,15 +1,12 @@
-import { router } from "expo-router";
-import {
-  SafeAreaView,
-} from "react-native-safe-area-context";
 import {
   ScrollView,
   StyleSheet,
   Text,
-  View,
-  TouchableOpacity,
   TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const CARD_BG = "#FFFFFF";
 const SCREEN_BG = "#F5FAFA";
@@ -20,7 +17,7 @@ const TEXT_DARK = "#1A1A1A";
 const MOCK_APPOINTMENTS = [
   {
     id: "APT-001",
-    name: "John Doe",
+    name: "Sham Sharma",
     test: "Full Body Checkup",
     date: "26 Nov 2025",
     time: "10:30 AM",
@@ -28,7 +25,7 @@ const MOCK_APPOINTMENTS = [
   },
   {
     id: "APT-002",
-    name: "Priya Sharma",
+    name: "Ashish Chanchlani",
     test: "Blood Test",
     date: "26 Nov 2025",
     time: "11:15 AM",
@@ -144,25 +141,6 @@ const styles = StyleSheet.create({
   },
   logoAccent: {
     color: PRIMARY_TEAL,
-  },
-  backButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: CARD_BG,
-    borderRadius: 999,
-    paddingHorizontal: 14,
-    paddingVertical: 6,
-    borderWidth: 1,
-    borderColor: "#E0E0E0",
-  },
-  backButtonIcon: {
-    fontSize: 16,
-    marginRight: 6,
-  },
-  backButtonText: {
-    fontSize: 13,
-    fontWeight: "600",
-    color: "#333",
   },
   pageHeader: {
     marginBottom: 16,
