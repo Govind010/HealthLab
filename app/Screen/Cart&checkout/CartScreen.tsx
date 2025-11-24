@@ -1,4 +1,12 @@
+import OrderSummaryCard from "@/components/OrderSummaryCard";
+import {
+  cartData,
+  CartItem,
+  clearCart,
+  removeTestFromCart,
+} from "@/Data/cartData";
 import { Ionicons } from "@expo/vector-icons";
+import { useFocusEffect } from "expo-router";
 import React, { useState } from "react";
 import {
   Dimensions,
@@ -9,13 +17,6 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import OrderSummaryCard from "@/components/OrderSummaryCard";
-import {
-  cartData,
-  CartItem,
-  clearCart,
-  removeTestFromCart,
-} from "@/Data/cartData";
 
 const { width } = Dimensions.get("window");
 const CARD_SPACING = 12;
@@ -30,10 +31,14 @@ function priceToNumber(price: string): number {
 }
 
 export default function CartScreen() {
-  // Forces re-render when we mutate global cartData
   const [cartTests, setCartTests] = useState<CartItem[]>(cartData);
 
-  // const cartTests: CartItem[] = cartData;
+  // Forces re-render when we mutate global cartData
+  useFocusEffect(
+    React.useCallback(() => {
+      setCartTests([...cartData]);
+    }, [])
+  );
 
   const subtotal = cartTests.reduce(
     (sum, test) => sum + priceToNumber(test.price),
