@@ -1,13 +1,5 @@
-import OrderSummaryCard from "@/components/OrderSummaryCard";
-import {
-  cartData,
-  CartItem,
-  clearCart,
-  removeTestFromCart,
-} from "@/Data/cartData";
 import { Ionicons } from "@expo/vector-icons";
-import { useFocusEffect } from "expo-router";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Dimensions,
   FlatList,
@@ -17,6 +9,14 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import OrderSummaryCard from "@/components/OrderSummaryCard";
+import {
+  cartData,
+  CartItem,
+  clearCart,
+  removeTestFromCart,
+  subscribeToCart,
+} from "@/Data/cartData";
 
 const { width } = Dimensions.get("window");
 const CARD_SPACING = 12;
@@ -31,14 +31,16 @@ function priceToNumber(price: string): number {
 }
 
 export default function CartScreen() {
-  const [cartTests, setCartTests] = useState<CartItem[]>(cartData);
+  const [cartTests, setCartTests] = useState<CartItem[]>([...cartData]);
 
-  // Forces re-render when we mutate global cartData
-  useFocusEffect(
-    React.useCallback(() => {
+  // Subscribe to real-time cart updates
+  useEffect(() => {
+    const unsubscribe = subscribeToCart(() => {
       setCartTests([...cartData]);
-    }, [])
-  );
+    });
+
+    return unsubscribe;
+  }, []);
 
   const subtotal = cartTests.reduce(
     (sum, test) => sum + priceToNumber(test.price),
@@ -55,14 +57,10 @@ export default function CartScreen() {
 
   const handleRemove = (name: string) => {
     removeTestFromCart(name);
-    // update local state to reflect mutation of the shared `cartData`
-    setCartTests([...cartData]);
   };
 
   const handleClear = () => {
     clearCart();
-    // update local state after clearing
-    setCartTests([]);
   };
 
   const renderTestCard = ({ item: test }: { item: CartItem }) => (
@@ -82,7 +80,6 @@ export default function CartScreen() {
           activeOpacity={0.7}
           onPress={() => handleRemove(test.name)}
         >
-          {/* <Text style={styles.deleteIcon}>🗑️</Text> */}
           <Ionicons name="trash-outline" size={24} color="#c91010ff" />
         </TouchableOpacity>
       </View>
