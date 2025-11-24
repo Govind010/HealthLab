@@ -13,7 +13,7 @@ export default function Header() {
       <Text style={styles.headerTitle}>HealthLab</Text>
       <TouchableOpacity
         style={styles.buttonStyle}
-        onPress={() => router.push("/Screen/CartScreen")}
+        onPress={() => router.push("/Screen/Cart&checkout/CartScreen")}
       >
         <Ionicons name="cart-outline" size={24} color="#333" />
       </TouchableOpacity>

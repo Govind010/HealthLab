@@ -4,13 +4,13 @@ import DateTimePicker, {
 import React, { useMemo, useRef, useState } from "react";
 import { Alert, Platform, ScrollView, StyleSheet, Text } from "react-native";
 
-import { CartItem, cartData } from "../../Data/cartData";
-import AppointmentScheduleCard from "../../components/AppointmentScheduleCard";
-import BookingSummaryCard from "../../components/BookingSummaryCard";
+import { CartItem, cartData } from "@/Data/cartData";
+import AppointmentScheduleCard from "@/components/AppointmentScheduleCard";
+import BookingSummaryCard from "@/components/BookingSummaryCard";
 import PatientDetailsForm, {
   Gender,
   PatientDetailsFormHandle,
-} from "../../components/PatientDetailsForm";
+} from "@/components/PatientDetailsForm";
 
 const HOME_COLLECTION_CHARGE = 125;
 const FREE_HOME_COLLECTION_THRESHOLD = 500;

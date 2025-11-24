@@ -9,13 +9,13 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import OrderSummaryCard from "../../components/OrderSummaryCard";
+import OrderSummaryCard from "@/components/OrderSummaryCard";
 import {
   cartData,
   CartItem,
   clearCart,
   removeTestFromCart,
-} from "../../Data/cartData";
+} from "@/Data/cartData";
 
 const { width } = Dimensions.get("window");
 const CARD_SPACING = 12;

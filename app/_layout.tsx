@@ -45,33 +45,9 @@ export default function RootLayout() {
           }}
         />
 
-        {/* Hidden screen: exists as a route, not shown in tab bar */}
+        {/* Hidden screens */}
         <Tabs.Screen
-          name="Screen/CartScreen"
-          options={{
-            href: null,
-          }}
-        />
-        <Tabs.Screen
-          name="Screen/BookAppointmentScreen"
-          options={{
-            href: null,
-          }}
-        />
-        <Tabs.Screen
-          name="Screen/ManageTimeSlotsScreen"
-          options={{
-            href: null,
-          }}
-        />
-        <Tabs.Screen
-          name="Screen/ManageTestsAndPackagesScreen"
-          options={{
-            href: null,
-          }}
-        />
-        <Tabs.Screen
-          name="Screen/ManageAppointmentsScreen"
+          name="Screen/Cart&checkout"
           options={{
             href: null,
           }}

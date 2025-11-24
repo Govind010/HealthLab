@@ -90,7 +90,7 @@ export default function AdminScreen() {
           <TouchableOpacity
             style={styles.sectionButton}
             activeOpacity={0.9}
-            onPress={() => router.push("/Screen/ManageAppointmentsScreen")}
+            onPress={() => router.push("/Screen/AdminScreen/ManageAppointmentsScreen")}
           >
             <Text style={styles.sectionButtonText}>Manage Appointments</Text>
           </TouchableOpacity>
@@ -104,7 +104,7 @@ export default function AdminScreen() {
           <TouchableOpacity
             style={styles.sectionButton}
             activeOpacity={0.9}
-            onPress={() => router.push("/Screen/ManageTestsAndPackagesScreen")}
+            onPress={() => router.push("/Screen/AdminScreen/ManageTestsAndPackagesScreen")}
           >
             <Text style={styles.sectionButtonText}>Manage Tests</Text>
           </TouchableOpacity>
@@ -118,7 +118,7 @@ export default function AdminScreen() {
           <TouchableOpacity
             style={styles.sectionButton}
             activeOpacity={0.9}
-            onPress={() => router.push("/Screen/ManageTimeSlotsScreen")}
+            onPress={() => router.push("/Screen/AdminScreen/ManageTimeSlotsScreen")}
           >
             <Text style={styles.sectionButtonText}>Manage Slots</Text>
           </TouchableOpacity>

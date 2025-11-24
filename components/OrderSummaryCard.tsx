@@ -61,7 +61,7 @@ export default function OrderSummaryCard({
         <TouchableOpacity
           style={styles.bookButton}
           activeOpacity={0.85}
-          onPress={() => router.push("/Screen/BookAppointmentScreen")}
+          onPress={() => router.push("/Screen/Cart&checkout/BookAppointmentScreen")}
         >
           <Text style={styles.bookButtonText}>Proceed to Book</Text>
         </TouchableOpacity>
